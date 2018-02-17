@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{arrows,calc,positioning,shadows,shapes}
+
+\begin{document}
+
+Figure is not able to be center align
+\hfill
+\begin{figure}[!htb]
+  \centering
+  \begin{tikzpicture}[scale=0.9] %scale utk tetapkan size figure
+
+    \draw[help lines] (-5.0,-5.0) grid (5.0,5.0);
+
+    \node[align=center, fill=red!20,
+    rounded corners=14pt, minimum height=2cm,
+    minimum width=4cm] (chbox) at (0,0) {A};
+
+    \node[align=center, fill=red!20,
+    rounded corners=14pt, minimum height=2cm,
+    minimum width=4cm] (meshbox) at (-5.0,0) {B};
+
+    \node[align=center, fill=red!20,
+    rounded corners=14pt, minimum height=2cm,
+    minimum width=4cm] (imagebox) at (5.0,0) {C};
+
+  \end{tikzpicture}
+  \caption{Figure caption}
+  \label{fig:dummy}
+\end{figure}
+
+The \texttt{scale} option seems not to work well with the \texttt{minimum height} and
+\texttt{minimum width} options.
+
+\hfill
+\begin{figure}[!htb]
+  \centering
+  \begin{tikzpicture}[scale=0.4]
+    \draw[help lines] (-6.0,-6.0) grid (6.0,6.0);
+    \node[align=center,fill=red!20,minimum height=2,minimum width=4] (chbox) at (0,0) {A};
+    \node[align=center,fill=red!20,minimum height=2,minimum width=4] (meshbox) at (-6.0,0) {B};
+    \node[align=center,fill=red!20,minimum height=2,minimum width=4] (imagebox) at (6.0,0) {C};
+  \end{tikzpicture}
+  \caption{Figure caption}
+  \label{fig:dummy}
+\end{figure}
+\end{document}
