@@ -177,7 +177,7 @@ from the middle i.e \texttt{bestil} and specify the direction from there. But us
   \path [line] (eier) -- (bestil);
   \path [line] (ereg) -- (ut);
   \path [line] (eier) -- (ereg);
-  \path [line] (ut) -- node [right= .4, scale=.8, text width = 3cm]
+  \path [line] (ut) -- node [right = .4, scale=.8, text width = 3cm]
   {forskjellige type \\ filformater f.eks. csv, xlsx, sav etc.} (stat) ;
   \path [line] (bestil) -- (stat);
   \path [line] (stat) -- node [left, scale=.8, text width=3cm]
@@ -190,8 +190,8 @@ from the middle i.e \texttt{bestil} and specify the direction from there. But us
   \path [line] (kode) -- node [right = .5, scale =.8, text width = 3cm]
   {R koder sendes til register eier og kjøres lokal} (r2);
   % tekst lokasjon og 'text width' kontrollere størrelse for å legge tekstene
-  \path [line] (r1) -- node [right = 3mm, text width = 3.5cm]
-  {lokale instillinger \\ oftest gir største \\ problemmer} (rest1);
+  \path [line] (r1) -- node [right = 1mm, text width = 3.5cm, align=center]
+  {lokale instillinger \\ oftest gir største \\ problemmer og vanskeligere å løse} (rest1);
   \path [line] (r2) -- (rest2);
 
 \end{tikzpicture}
