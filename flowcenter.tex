@@ -1,0 +1,78 @@
+\documentclass{article}
+\pagestyle{empty}
+
+% package seperti guna verbatim utk masukkan kode
+\usepackage{listings}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows, shapes, positioning, calc}
+
+\begin{document}
+
+Insert node between two nodes \newline
+
+\begin{tikzpicture}
+  \node  (a) {a}  ;
+  \node  (b) at (4,0) {b};
+  \path   (a) -- node {m} (b);
+  % or \path (a) -- (b) node[midway]{m};
+  % or pos =.5  instead of midway
+\end{tikzpicture}
+
+\begin{verbatim}
+\begin{tikzpicture}
+     \node  (a) {a}  ;
+     \node  (b) at (4,0) {b};
+     \path   (a) -- node {m} (b);
+      %  or \path (a) -- (b) node[midway]{m};
+      % or pos =.5  instead of midway
+\end{tikzpicture}
+\end{verbatim}
+
+\hfill\break
+Use \verb|calc library| to position \texttt{m} between the two nodes.\newline
+
+\begin{tikzpicture} % with calc library
+  \node  (a) {a};
+  \node  (b) at (5,1) {b};
+  \node   at ($(a)!0.5!(b)$) {m};
+\end{tikzpicture}
+
+
+% guna package listings
+\begin{lstlisting}
+  \begin{tikzpicture}
+    \node  (a) {a};
+    \node  (b) at (5,1) {b};
+    \node   at ($(a)!0.5!(b)$) {m};
+  \end{tikzpicture}
+\end{lstlisting}
+
+\hfill\break
+Positioning several nodes between two nodes \\
+
+\begin{center}
+\begin{tikzpicture}
+  \node  (a) {a}  ;
+  \node  (b) at (8,0) {b};
+  \path (a) -- (b) node[pos=.25]{c} node[pos=.5]{d} node[pos=.75]{e};
+\end{tikzpicture}
+\end{center}
+
+\begin{lstlisting}
+  \node  (a) {a};
+  \node  (b) at (8,0) {b};
+  \path (a) -- (b) node[pos=.25]{c} node[pos=.5]{d} node[pos=.75]{e};
+\end{lstlisting}
+
+\hfill\break
+With \verb|positioning| library \verb|\path (a) -- node[below=5] {m} (b);| \\
+signifies 5cm, while without signifies 5pt.\newline
+
+\begin{tikzpicture}
+  \node (a) {a};
+  \node (b) [right= of a] {b};
+  \path (a) -- node[below=.5] {m} (b); % distance 0.5cm
+\end{tikzpicture}
+
+\end{document}
